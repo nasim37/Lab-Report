@@ -1,0 +1,33 @@
+#include <iostream>
+#include <thread>
+using namespace std;
+
+bool flag[2] = {false, false};
+int turn;
+
+void peterson_enter(int self) {
+    int other = 1 - self;
+    flag[self] = true;
+    turn = other;
+    while (flag[other] && turn == other);
+}
+
+void peterson_exit(int self) {
+    flag[self] = false;
+}
+
+void process(int id) {
+    for (int i = id; i <= 15; i += 2) {
+        peterson_enter(id);
+        cout << "Process " << id + 1 << " printing: " << i << endl;
+        peterson_exit(id);
+    }
+}
+
+int main() {
+    thread t1(process, 0);
+    thread t2(process, 1);
+    t1.join();
+    t2.join();
+    return 0;
+}
