@@ -1,0 +1,39 @@
+CREATE TABLE Books (
+  BookID INT PRIMARY KEY,
+  Title VARCHAR(100),
+  Genre VARCHAR(50),
+  Price DECIMAL(6,2),
+  Quantity INT,
+  PublishYear INT
+);
+
+INSERT INTO Books (BookID, Title, Genre, Price, Quantity, PublishYear) VALUES
+(201, 'The Silent Patient', 'Thriller', 15.99, 10, 2019),
+(202, 'Atomic Habits',      'Self-Help', 18.50,  7, 2018),
+(203, 'Educated',           'Memoir',    14.25, 12, 2018),
+(204, 'The Midnight Library','Fiction',  16.75,  5, 2020),
+(205, 'Deep Work',          'Self-Help', 20.00,  8, 2016),
+(206, 'Becoming',           'Biography', 22.99,  6, 2018);
+
+
+
+SELECT *
+FROM Books
+ORDER BY PublishYear DESC
+LIMIT 1;
+
+
+SELECT AVG(Price) AS AveragePrice
+FROM Books;
+
+
+SELECT Title, Genre
+FROM Books;
+
+
+SELECT *
+FROM Books
+LIMIT 3;
+
+
+SELECT * FROM Books;
