@@ -35,7 +35,7 @@ DROP TABLE Students;
 ALTER TABLE Students RENAME TO Learners;
 ```
 
-1. Insert Data
+1. Insert Data (this is not need in assignment, this is my given data to create thus 13 quarry)
 
 ```sql
 INSERT INTO Students (Id, Name, Department, Mark) VALUES
@@ -70,7 +70,7 @@ SELECT * FROM Students LIMIT 3;
 1. Select Last N Rows
 
 ```sql
-SELECT * FROM Students LIMIT 5 OFFSET 3;
+SELECT * FROM Students LIMIT 2,3;
 ```
 
 1. Order by Specific Column
@@ -94,5 +94,7 @@ SELECT
   MAX(Mark) AS HighestMark,
   MIN(Mark) AS LowestMark
 FROM Students;
+
+WHERE Clause :
 
 SELECT * FROM Students WHERE Mark > 70;
