@@ -94,3 +94,5 @@ SELECT
   MAX(Mark) AS HighestMark,
   MIN(Mark) AS LowestMark
 FROM Students;
+
+SELECT * FROM Students WHERE Mark > 70;
