@@ -1,0 +1,96 @@
+Here are all 13 SQL queries combined in one message based on your provided student details:
+
+1. Create Database
+
+```sql
+CREATE DATABASE StudentDB;
+```
+
+1. Delete Database
+
+```sql
+DROP DATABASE StudentDB;
+```
+
+1. Create Table
+
+```sql
+CREATE TABLE Students (
+    Id BIGINT PRIMARY KEY,
+    Name VARCHAR(100),
+    Department VARCHAR(50),
+    Mark INT
+);
+```
+
+1. Delete Table
+
+```sql
+DROP TABLE Students;
+```
+
+1. Rename Table
+
+```sql
+ALTER TABLE Students RENAME TO Learners;
+```
+
+1. Insert Data
+
+```sql
+INSERT INTO Students (Id, Name, Department, Mark) VALUES
+(2233081236, 'Nasim Uddin Khan', 'CSE', 99),
+(2233081229, 'Tamim Rahman Tauhid', 'EEE', 69),
+(2233081233, 'Jahidul Hasan Numan', 'Civil', 87),
+(2233081235, 'Rokom Uddin Siam', 'BBA', 64),
+(2233081214, 'Rakibul Hasan Utshob', 'Math', 60),
+(2233081212, 'Nipa Akter', 'FDT', 33),
+(2233081200, 'Pinaki Battacarrya', 'Bangla', 70),
+(2233081201, 'Ilias Hossain', 'Islamic Studies', 50);
+```
+
+1. Select All Data
+
+```sql
+SELECT * FROM Students;
+```
+
+1. Select Specific Columns
+
+```sql
+SELECT Name, Mark FROM Students;
+```
+
+1. Select First N Rows
+
+```sql
+SELECT * FROM Students LIMIT 3;
+```
+
+1. Select Last N Rows
+
+```sql
+SELECT * FROM Students LIMIT 5 OFFSET 3;
+```
+
+1. Order by Specific Column
+
+
+SELECT * FROM Students ORDER BY Mark DESC;
+
+
+1. Order by Multiple Columns
+
+
+SELECT * FROM Students ORDER BY Department ASC, Mark DESC;
+
+
+1. Aggregate Functions
+
+SELECT
+  COUNT(Id) AS TotalStudents,
+  SUM(Mark) AS TotalMarks,
+  AVG(Mark) AS AverageMarks,
+  MAX(Mark) AS HighestMark,
+  MIN(Mark) AS LowestMark
+FROM Students;
