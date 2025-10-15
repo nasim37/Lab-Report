@@ -1,0 +1,104 @@
+Here are all 13 SQL queries with the changed details:
+
+1. Create Database
+
+```sql
+CREATE DATABASE UtshobDB;
+```
+
+1. Delete Database
+
+```sql
+DROP DATABASE UtshobDB;
+```
+
+1. Create Table
+
+```sql
+CREATE TABLE Students (
+    Id BIGINT PRIMARY KEY,
+    Name VARCHAR(100),
+    Subject VARCHAR(50),
+    Mark INT
+);
+```
+
+1. Delete Table
+
+```sql
+DROP TABLE Students;
+```
+
+1. Rename Table
+
+```sql
+ALTER TABLE Students RENAME TO UtshobDBnew;
+```
+
+1. Select All Data
+
+```sql
+SELECT * FROM Students;
+```
+
+1. Select Specific Columns
+
+```sql
+SELECT Name, Mark FROM Students;
+```
+
+1. Select First N Rows
+
+```sql
+SELECT * FROM Students LIMIT 3;
+```
+
+1. Select Last N Rows
+
+```sql
+SELECT * FROM Students LIMIT 2,3;
+```
+
+1. Order by Specific Column
+
+```sql
+SELECT * FROM Students ORDER BY Mark DESC;
+```
+
+1. Order by Multiple Columns
+
+```sql
+SELECT * FROM Students ORDER BY Subject ASC, Mark DESC;
+```
+
+1. Aggregate Functions
+
+```sql
+SELECT
+  COUNT(Id) AS TotalStudents,
+  SUM(Mark) AS TotalMarks,
+  AVG(Mark) AS AverageMarks,
+  MAX(Mark) AS HighestMark,
+  MIN(Mark) AS LowestMark
+FROM Students;
+```
+
+1. WHERE Clause
+
+```sql
+SELECT * FROM Students WHERE Mark > 70;
+```
+
+Sample Data Insertion (for reference):
+
+```sql
+INSERT INTO Students (Id, Name, Subject, Mark) VALUES
+(2233081001, 'Ayesha Siddiqa', 'Mathematics', 92),
+(2233081002, 'Rafiqul Islam', 'Physics', 78),
+(2233081003, 'Fatima Begum', 'Chemistry', 85),
+(2233081004, 'Shahriar Ahmed', 'Biology', 67),
+(2233081005, 'Tasnim Rahman', 'English', 88),
+(2233081006, 'Mohammad Ali', 'Bangla', 72),
+(2233081007, 'Sabrina Chowdhury', 'ICT', 95),
+(2233081008, 'Jamal Hossain', 'Economics', 63);
+```
