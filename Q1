@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Q1 – Add / Remove Friend Toggle</title>
+<style>
+  body{display:flex;justify-content:center;align-items:center;height:100vh;font-family:Arial,Helvetica,sans-serif}
+  .card{background:#fff;border:1px solid #ddd;border-radius:8px;padding:2rem;text-align:center;box-shadow:0 4px 10px rgba(0,0,0,.1)}
+  .card img{width:100px;height:100px;border-radius:50%;object-fit:cover;margin-bottom:1rem}
+  #toggleBtn{padding:.6rem 1.2rem;border:none;border-radius:4px;font-size:1rem;cursor:pointer;transition:background .25s}
+  .add     {background:#1976d2;color:#fff}
+  .added   {background:#388e3c;color:#fff}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <img src="https://i.pravatar.cc/200?u=jslab" alt="avatar">
+  <h3>Jane Doe</h3>
+  <button id="toggleBtn" class="add">Add Friend</button>
+</div>
+
+<script>
+const btn = document.getElementById('toggleBtn');
+btn.addEventListener('click', () => {
+  if (btn.classList.contains('add')) {          // currently “Add Friend”
+    btn.textContent = 'Friend Added';
+    btn.classList.replace('add', 'added');
+  } else {                                      // currently “Friend Added”
+    btn.textContent = 'Add Friend';
+    btn.classList.replace('added', 'add');
+  }
+});
+</script>
+</body>
+</html>
