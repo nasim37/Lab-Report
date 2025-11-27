@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Micro-Interactions Demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;padding:2rem;background:#f7f7f7}
+  h2{margin-top:2rem}
+  button{cursor:pointer;padding:.4rem .8rem}
+  .hidden{display:none}
+  #counterBox{display:inline-block;padding:.4rem .8rem;border:1px solid #ccc;background:#fff}
+  #upperInput{padding:.4rem;width:220px}
+  .hoverMe{padding:.6rem 1rem;background:#e0e0e0;display:inline-block;transition:all .25s}
+  .fontSwitch{font-size:1rem}
+  .fontSwitch.big{font-size:2rem}
+  form{margin-top:1.2rem}
+  input[type=text],textarea{padding:.4rem;margin:.2rem 0;width:220px;border:1px solid #bbb}
+</style>
+</head>
+<body>
+
+<h2>1. Click to decrease a number</h2>
+<button id="downBtn">–1</button>
+<span id="counterBox">10</span>
+
+<h2>2. Click to hide/show a paragraph</h2>
+<button id="toggleBtn">Toggle paragraph</button>
+<p id="secretPara">This paragraph can be hidden or revealed with the button above.</p>
+
+<h2>3. Convert input text to uppercase <em>while typing</em></h2>
+<input id="upperInput" placeholder="Type here…">
+
+<h2>4. Change text & background color on hover</h2>
+<div class="hoverMe" id="colorBox">Hover me to see colors change</div>
+
+<h2>5. Toggle font-size on hover</h2>
+<div class="hoverMe fontSwitch" id="fontBox">Hover me to toggle font-size</div>
+
+<h2>6. Change background color of form fields on focus</h2>
+<form>
+  <input type="text" placeholder="First name"><br>
+  <input type="text" placeholder="Last name"><br>
+  <textarea placeholder="Message"></textarea>
+</form>
+
+<script>
+/* 1. Decrease counter */
+const downBtn  = document.getElementById('downBtn');
+const counter  = document.getElementById('counterBox');
+downBtn.onclick = () => counter.textContent = +counter.textContent - 1;
+
+/* 2. Hide/show paragraph */
+const toggleBtn = document.getElementById('toggleBtn');
+const secret    = document.getElementById('secretPara');
+toggleBtn.onclick = () => secret.classList.toggle('hidden');
+
+/* 3. Uppercase on keypress */
+document.getElementById('upperInput').addEventListener('input', e => {
+  e.target.value = e.target.value.toUpperCase();
+});
+
+/* 4. Color change on hover */
+const colorBox = document.getElementById('colorBox');
+colorBox.onmouseenter = () => {
+  colorBox.style.color            = '#fff';
+  colorBox.style.backgroundColor  = '#007acc';
+};
+colorBox.onmouseleave = () => {
+  colorBox.style.color            = '';
+  colorBox.style.backgroundColor  = '';
+};
+
+/* 5. Font-size toggle on hover */
+const fontBox = document.getElementById('fontBox');
+fontBox.onmouseenter  = () => fontBox.classList.add('big');
+fontBox.onmouseleave  = () => fontBox.classList.remove('big');
+
+/* 6. Focus styling for all form controls */
+document.querySelectorAll('input, textarea').forEach(el => {
+  el.addEventListener('focus', () => el.style.backgroundColor = '#fffacd');
+  el.addEventListener('blur',  () => el.style.backgroundColor = '');
+});
+</script>
+</body>
+</html>
