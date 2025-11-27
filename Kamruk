@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DOM Practice Playground</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;padding:2rem;background:#fafafa}
+  h2{margin-top:2rem}
+  table,td,th{border:1px solid #999;border-collapse:collapse}
+  th,td{padding:.4rem .6rem}
+  ul{margin:.4rem 0}
+  .sameClass{background:#ffe082;padding:.2rem .5rem;border-radius:4px;display:inline-block;margin:2px}
+  .card{background:#fff;border:1px solid #ddd;border-radius:6px;padding:1rem;width:160px;box-shadow:0 2px 4px rgba(0,0,0,.08);margin:.5rem;display:inline-block;vertical-align:top}
+  .globalBtn{background:#1976d2;color:#fff;border:none;padding:.5rem 1rem;border-radius:4px;cursor:pointer;font-size:1rem;margin:.2rem}
+  .globalBtn:hover{background:#0d47a1}
+</style>
+</head>
+<body>
+
+<h2>1. Add a new row to a table</h2>
+<table id="myTable">
+  <thead><tr><th>#</th><th>Name</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Alice</td></tr>
+    <tr><td>2</td><td>Bob</td></tr>
+  </tbody>
+</table><br>
+<button class="globalBtn" onclick="addRow()">+ Add Row</button>
+
+<h2>2. Create an unordered list and add new list items</h2>
+<ul id="dynamicList"></ul>
+<button class="globalBtn" onclick="addItem()">+ Add Item</button>
+
+<h2>3. Apply the same class to all list items</h2>
+<p>(Every new item above already gets class "sameClass".)</p>
+
+<h2>4. Create multiple cards using a loop and apply the same class to all</h2>
+<button class="globalBtn" onclick="makeCards()">Generate 4 Cards</button>
+<div id="cardContainer"></div>
+
+<h2>5. Make all buttons of your website look the same</h2>
+<p>Every button on this page uses the class <code>globalBtn</code> — change the CSS once, update every button.</p>
+
+<script>
+/* 1. Add row */
+let rowCounter = 2;
+function addRow(){
+  rowCounter++;
+  const tbody = document.querySelector('#myTable tbody');
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td>${rowCounter}</td><td>Player ${rowCounter}</td>`;
+  tbody.appendChild(tr);
+}
+
+/* 2 & 3. Add list item with class */
+let itemCounter = 0;
+function addItem(){
+  itemCounter++;
+  const li = document.createElement('li');
+  li.textContent = `Task ${itemCounter}`;
+  li.className = 'sameClass';          // same class applied
+  document.getElementById('dynamicList').appendChild(li);
+}
+
+/* 4. Generate cards with loop */
+function makeCards(){
+  const container = document.getElementById('cardContainer');
+  container.innerHTML = '';            // clear previous
+  for(let i=1;i<=4;i++){
+    const div = document.createElement('div');
+    div.className = 'card';            // same class
+    div.innerHTML = `<h4>Card ${i}</h4><p>Quick description here.</p>`;
+    container.appendChild(div);
+  }
+}
+</script>
+</body>
+</html>
